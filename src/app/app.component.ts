@@ -4,7 +4,34 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   standalone: true,
   imports: [],
-  templateUrl: './app.component.html',
+  template: `
+    <div>
+      <div>
+        <span>The winner is {{winner}}</span>
+      </div>
+      <div>
+        <span>Next Player is {{player}}</span>
+      </div>
+      <div>
+        <button type="button" (click)="startGame()" >Reset</button>
+      </div>
+      <div>
+          @for(row of [0,1,2]; track row) {
+          <div class="cell-container">
+            @for(column of [0,1,2]; track column) {
+              <button
+                type="button"
+                class="cells"
+                (click)="onCellClick(row,column)"
+              >
+                {{grid[row][column]}}
+              </button>
+            }
+          </div>
+          }
+      </div>
+    </div>
+  `,
   styles: `
   .cell-container {
     display:flex;

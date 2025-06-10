@@ -6,9 +6,14 @@ import { Component, OnInit } from '@angular/core';
   imports: [],
   templateUrl: './app.component.html',
   styles: `
-  .cells {
-    width:40px;
-    height:40px;
+  .cell-container {
+    display:flex;
+    flex-direction:row;
+    .cells {
+      width:40px;
+      height:40px;
+      margin: 2px;
+    }
   }
   `
 })
@@ -51,6 +56,7 @@ export class AppComponent implements OnInit {
       this.checkForWinner();
       if (this.winner !== "") {
         this.gameOver = true;
+        this.player = "";
         return;
       }
       this.swapPlayers();

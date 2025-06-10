@@ -17,17 +17,17 @@ import { Component, OnInit } from '@angular/core';
       </div>
       <div>
           @for(row of [0,1,2]; track row) {
-          <div class="cell-container">
-            @for(column of [0,1,2]; track column) {
-              <button
-                type="button"
-                class="cells"
-                (click)="onCellClick(row,column)"
-              >
-                {{grid[row][column]}}
-              </button>
-            }
-          </div>
+            <div class="cell-container">
+              @for(column of [0,1,2]; track column) {
+                <button
+                  type="button"
+                  class="cells"
+                  (click)="onCellClick(row,column)"
+                >
+                  {{grid[row][column]}}
+                </button>
+              }
+            </div>
           }
       </div>
     </div>
